@@ -1,0 +1,614 @@
+<!doctype html><html lang="es"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><title>Contratos Ptatanka</title><meta name="robots" content="noindex,nofollow"></head><body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F1F4F8;--sur:#FFFFFF;--sur2:#EBF0F6;--pri:#1B3D5F;--pri-h:#224E78;--acc:#C94126;--acc-h:#B33620;--t1:#1A2635;--t2:#57687A;--t3:#8FA0B2;--bd:#D8E0EA;--bd-h:#BBC8D8;--ok:#146B40;--ok-bg:#E6F5EC;--ok-bd:#A8D9BC;--wn:#9A6200;--wn-bg:#FEF7E6;--wn-bd:#F5CC6E;--er:#B91C1C;--er-bg:#FEF2F2;--er-bd:#FECACA;--rad:8px;--rad-lg:12px;--sid:230px;--sh:0 1px 3px rgba(0,0,0,.07),0 1px 2px rgba(0,0,0,.04);--sh-md:0 4px 16px rgba(0,0,0,.09),0 2px 4px rgba(0,0,0,.04)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C1826;--sur:#152236;--sur2:#1C2F47;--pri:#2462A0;--pri-h:#2C75C2;--t1:#E4EDF7;--t2:#7E98B4;--t3:#4D6A85;--bd:#1F3452;--bd-h:#2A4668;--ok:#4ADE80;--ok-bg:#052E18;--ok-bd:#155F35;--wn:#FCD34D;--wn-bg:#2A1A00;--wn-bd:#92400E;--er:#F87171;--er-bg:#2D0A0A;--er-bd:#7F1D1D}}
+:root[data-theme="dark"]{--bg:#0C1826;--sur:#152236;--sur2:#1C2F47;--pri:#2462A0;--pri-h:#2C75C2;--t1:#E4EDF7;--t2:#7E98B4;--t3:#4D6A85;--bd:#1F3452;--bd-h:#2A4668;--ok:#4ADE80;--ok-bg:#052E18;--ok-bd:#155F35;--wn:#FCD34D;--wn-bg:#2A1A00;--wn-bd:#92400E;--er:#F87171;--er-bg:#2D0A0A;--er-bd:#7F1D1D}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:'Inter',system-ui,sans-serif;font-size:14px}
+body{background:var(--bg);color:var(--t1);display:flex;overflow:hidden}
+button{cursor:pointer;font-family:inherit;font-size:inherit}
+input,select{font-family:inherit;font-size:inherit}
+
+/* LOGIN */
+#login-screen{position:fixed;inset:0;z-index:2000;background:linear-gradient(135deg,#0d2236 0%,#1B3D5F 55%,#1a3552 100%);display:flex;align-items:center;justify-content:center;padding:20px}
+.login-box{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:16px;padding:40px 36px 36px;width:100%;max-width:380px;box-shadow:0 24px 64px rgba(0,0,0,.5);backdrop-filter:blur(8px)}
+.login-logo{display:flex;align-items:center;gap:13px;margin-bottom:30px;justify-content:center}
+.login-logo-icon{width:46px;height:46px;background:var(--acc);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.login-logo-name{font-family:'Sora',sans-serif;font-size:20px;font-weight:700;color:#fff;line-height:1.1}
+.login-logo-sub{font-size:11px;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.1em}
+.login-title{font-family:'Sora',sans-serif;font-size:14px;font-weight:600;color:rgba(255,255,255,.7);text-align:center;margin-bottom:22px;letter-spacing:.03em}
+.login-fg{display:flex;flex-direction:column;gap:5px;margin-bottom:13px}
+.login-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.5)}
+.login-input{padding:10px 13px;border-radius:8px;font-size:14px;width:100%;outline:none;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:#fff;transition:border-color .15s,background .15s}
+.login-input::placeholder{color:rgba(255,255,255,.3)}
+.login-input:focus{border-color:rgba(255,255,255,.45);background:rgba(255,255,255,.14)}
+.login-btn{width:100%;padding:11px;border-radius:8px;border:none;cursor:pointer;background:var(--acc);color:#fff;font-size:14px;font-weight:600;font-family:'Sora',sans-serif;letter-spacing:.02em;margin-top:8px;transition:background .15s}
+.login-btn:hover{background:var(--acc-h)}
+.login-btn:disabled{opacity:.5;cursor:not-allowed}
+.login-err{font-size:12.5px;color:#F87171;text-align:center;margin-top:10px;min-height:18px}
+.login-hint{font-size:11px;color:rgba(255,255,255,.25);text-align:center;margin-top:18px;line-height:1.5}
+
+/* LAYOUT */
+.sidebar{width:var(--sid);background:var(--pri);display:flex;flex-direction:column;flex-shrink:0;overflow-y:auto}
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
+.scroll{flex:1;overflow-y:auto;padding:28px 32px}
+.logo{padding:22px 18px 18px;display:flex;align-items:center;gap:11px;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:10px}
+.logo-icon{width:36px;height:36px;background:var(--acc);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.logo-name{font-family:'Sora',sans-serif;font-weight:700;font-size:14px;color:#fff;line-height:1.2}
+.logo-sub{font-size:10px;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.08em}
+.nav{padding:0 10px;display:flex;flex-direction:column;gap:3px}
+.nav-btn{display:flex;align-items:center;gap:10px;padding:10px 13px;border-radius:7px;font-size:13.5px;font-weight:500;color:rgba(255,255,255,.68);cursor:pointer;border:none;background:none;text-align:left;width:100%;transition:all .15s}
+.nav-btn:hover{background:rgba(255,255,255,.09);color:#fff}
+.nav-btn.on{background:rgba(255,255,255,.15);color:#fff}
+.nav-icon{font-size:15px;width:20px;text-align:center}
+.nav-badge{margin-left:auto;background:var(--acc);color:#fff;font-size:11px;font-weight:700;padding:1px 7px;border-radius:20px;min-width:20px;text-align:center}
+.sf{margin-top:auto;padding:14px 16px;border-top:1px solid rgba(255,255,255,.1)}
+.user-info{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+.user-avatar{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;text-transform:uppercase;flex-shrink:0}
+.user-name{font-size:12px;font-weight:500;color:rgba(255,255,255,.75);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.user-role{font-size:10px;color:rgba(255,255,255,.35)}
+.logout-btn{display:flex;align-items:center;gap:6px;padding:6px 8px;border-radius:6px;font-size:11.5px;font-weight:500;color:rgba(255,255,255,.5);background:none;border:none;cursor:pointer;width:100%;transition:all .15s}
+.logout-btn:hover{background:rgba(255,255,255,.09);color:rgba(255,255,255,.8)}
+.db-status{font-size:11px;color:rgba(255,255,255,.38);display:flex;align-items:center;gap:6px;margin-top:8px}
+.db-dot{width:6px;height:6px;border-radius:50%;background:#6b7a8a;flex-shrink:0}
+.db-dot.ok{background:#4ade80}
+.topbar{background:var(--sur);border-bottom:1px solid var(--bd);padding:13px 32px;display:flex;align-items:center;gap:14px;flex-shrink:0}
+.topbar-title{font-family:'Sora',sans-serif;font-weight:600;font-size:17px}
+.topbar-right{margin-left:auto;font-size:12px;color:var(--t3)}
+.menu-btn{display:none;background:none;border:1px solid var(--bd);border-radius:6px;padding:5px 9px;color:var(--t2)}
+.sec-hd{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:20px;flex-wrap:wrap}
+.sec-title{font-family:'Sora',sans-serif;font-weight:600;font-size:15px;color:var(--t1)}
+.sec-sub{font-size:12.5px;color:var(--t2);margin-top:3px}
+.card{background:var(--sur);border:1px solid var(--bd);border-radius:var(--rad-lg);box-shadow:var(--sh);overflow:hidden}
+.card+.card{margin-top:12px}
+.drop{border:2px dashed var(--bd);border-radius:var(--rad-lg);padding:48px 20px;text-align:center;cursor:pointer;transition:all .2s;background:var(--sur2)}
+.drop:hover,.drop.over{border-color:var(--pri);background:rgba(27,61,95,.06)}
+.drop-icon{font-size:38px;display:block;margin-bottom:12px}
+.drop-title{font-weight:600;font-size:15px;margin-bottom:6px}
+.drop-sub{font-size:13px;color:var(--t3)}
+.drop-sub em{font-style:normal;color:var(--pri);font-weight:500}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{background:var(--sur2);padding:9px 14px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--t2);text-align:left;border-bottom:1px solid var(--bd);white-space:nowrap}
+tbody tr{border-bottom:1px solid var(--bd);transition:background .1s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:var(--sur2)}
+tbody td{padding:11px 14px;vertical-align:middle}
+.mono{font-family:'Courier New',monospace;font-size:12.5px;font-variant-numeric:tabular-nums}
+.badge{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:20px;font-size:11.5px;font-weight:600;white-space:nowrap}
+.badge-ok{background:var(--ok-bg);color:var(--ok);border:1px solid var(--ok-bd)}
+.badge-wn{background:var(--wn-bg);color:var(--wn);border:1px solid var(--wn-bd)}
+.badge-er{background:var(--er-bg);color:var(--er);border:1px solid var(--er-bd)}
+.badge-info{background:rgba(27,61,95,.1);color:var(--pri);border:1px solid rgba(27,61,95,.2)}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:7px;font-size:13.5px;font-weight:500;border:none;cursor:pointer;transition:all .15s;white-space:nowrap;line-height:1}
+.btn-pri{background:var(--pri);color:#fff}.btn-pri:hover{background:var(--pri-h)}
+.btn-pri:disabled{opacity:.45;cursor:not-allowed}
+.btn-acc{background:var(--acc);color:#fff}.btn-acc:hover{background:var(--acc-h)}
+.btn-acc:disabled{opacity:.45;cursor:not-allowed}
+.btn-danger{background:var(--er);color:#fff}.btn-danger:hover{filter:brightness(.92)}
+.btn-ghost{background:transparent;color:var(--t2);border:1px solid var(--bd)}
+.btn-ghost:hover{background:var(--sur2);color:var(--t1);border-color:var(--bd-h)}
+.btn-sm{padding:5px 11px;font-size:12px}
+.btn-lg{padding:12px 26px;font-size:15px}
+.frow{display:flex;gap:11px;flex-wrap:wrap}
+.fg{flex:1;min-width:140px;display:flex;flex-direction:column;gap:5px}
+.fg.sm{flex:0 0 100px;min-width:80px}
+.fg.lg{flex:2;min-width:200px}
+.flabel{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--t2)}
+.finput{padding:8px 11px;border:1px solid var(--bd);border-radius:6px;background:var(--sur);color:var(--t1);outline:none;transition:border-color .15s;width:100%}
+.finput:focus{border-color:var(--pri);box-shadow:0 0 0 2px rgba(27,61,95,.1)}
+.finput.err{border-color:var(--er)}
+.alert{padding:11px 14px;border-radius:var(--rad);font-size:13px;display:flex;align-items:flex-start;gap:9px;margin-bottom:14px}
+.alert-wn{background:var(--wn-bg);border:1px solid var(--wn-bd);color:var(--wn)}
+.alert-ok{background:var(--ok-bg);border:1px solid var(--ok-bd);color:var(--ok)}
+.empty{text-align:center;padding:60px 20px;color:var(--t3)}
+.empty-icon{font-size:40px;display:block;margin-bottom:12px}
+.empty-title{font-size:15px;font-weight:600;color:var(--t2);margin-bottom:6px}
+.mo{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;z-index:999;padding:16px}
+.mo-box{background:var(--sur);border-radius:var(--rad-lg);box-shadow:var(--sh-md);width:100%;max-width:520px;max-height:90vh;display:flex;flex-direction:column}
+.mo-hd{padding:18px 22px 14px;border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.mo-title{font-family:'Sora',sans-serif;font-weight:600;font-size:15px}
+.mo-x{background:none;border:none;font-size:20px;color:var(--t3);cursor:pointer;line-height:1}
+.mo-x:hover{color:var(--t1)}
+.mo-body{padding:18px 22px;overflow-y:auto;flex:1}
+.mo-ft{padding:13px 22px;border-top:1px solid var(--bd);display:flex;justify-content:flex-end;gap:9px;flex-shrink:0}
+.subsec{background:var(--sur2);border-radius:8px;padding:14px;margin-top:2px}
+.subsec-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--t2);margin-bottom:10px}
+.prog{height:5px;background:var(--bd);border-radius:3px;overflow:hidden;margin-top:8px}
+.prog-fill{height:100%;background:var(--ok);border-radius:3px;transition:width .4s}
+@media(max-width:680px){
+  .sidebar{position:fixed;inset:0 auto 0 0;z-index:200;transform:translateX(-100%);transition:transform .22s}
+  .sidebar.open{transform:none}
+  .menu-btn{display:block}
+  .scroll{padding:16px}
+  .topbar{padding:11px 16px}
+  .frow{flex-direction:column}
+  .fg.sm,.fg.lg{flex:1}
+}
+</style>
+
+<div id="login-screen">
+  <div class="login-box">
+    <div class="login-logo">
+      <div class="login-logo-icon">📋</div>
+      <div>
+        <div class="login-logo-name">Contratos</div>
+        <div class="login-logo-sub">Ptatanka SRL</div>
+      </div>
+    </div>
+    <div class="login-title">Ingresá con tu usuario</div>
+    <div class="login-fg">
+      <label class="login-label">Email</label>
+      <input class="login-input" id="li-user" type="email" placeholder="tu@email.com" autocomplete="username" autocapitalize="none" spellcheck="false">
+    </div>
+    <div class="login-fg">
+      <label class="login-label">Contraseña</label>
+      <input class="login-input" id="li-pwd" type="password" placeholder="••••••••" autocomplete="current-password">
+    </div>
+    <button class="login-btn" id="li-btn" onclick="doLogin()">Ingresar</button>
+    <div class="login-err" id="li-err"></div>
+    <div id="li-noconn" style="display:none;margin-top:14px;background:rgba(249,115,22,.13);border:1px solid rgba(249,115,22,.35);border-radius:8px;padding:12px 14px;font-size:12px;color:#FCA97F;line-height:1.55;text-align:center">
+      ⚠️ <strong>Falta configurar la base de datos</strong><br>
+      Pegá la clave pública (publishable/anon) de Supabase en el archivo <strong>index.html</strong><br>
+      (constante SUPABASE_ANON_KEY) y volvé a publicar.
+    </div>
+    <div class="login-hint" id="li-hint">¿No tenés acceso? Pedíselo al administrador.</div>
+  </div>
+</div>
+
+<div id="app" style="display:none;width:100%;height:100%">
+<div class="sidebar" id="sb">
+  <div class="logo">
+    <div class="logo-icon">📋</div>
+    <div><div class="logo-name">Contratos</div><div class="logo-sub">Ptatanka SRL</div></div>
+  </div>
+  <nav class="nav">
+    <button class="nav-btn on" data-v="altas" onclick="go('altas')"><span class="nav-icon">⬆️</span> Altas ARCA<span class="nav-badge" id="nb-altas" hidden></span></button>
+    <button class="nav-btn" data-v="colab" onclick="go('colab')"><span class="nav-icon">👥</span> Colaboradores</button>
+    <button class="nav-btn" data-v="contratos" onclick="go('contratos')"><span class="nav-icon">📄</span> Contratos<span class="nav-badge" id="nb-contratos" hidden></span></button>
+    <button class="nav-btn" data-v="usuarios" id="nav-usuarios" onclick="go('usuarios')" hidden><span class="nav-icon">🔐</span> Usuarios</button>
+  </nav>
+  <div class="sf">
+    <div class="user-info">
+      <div class="user-avatar" id="ua"></div>
+      <div><div class="user-name" id="un"></div><div class="user-role" id="ur"></div></div>
+    </div>
+    <button class="logout-btn" onclick="logout()">← Cerrar sesión</button>
+    <div class="db-status"><div class="db-dot" id="dd"></div><span id="ds">Conectando…</span></div>
+  </div>
+</div>
+<div class="main">
+  <div class="topbar">
+    <button class="menu-btn" onclick="toggleSb()">☰</button>
+    <span class="topbar-title" id="tt">Altas ARCA</span>
+    <span class="topbar-right" id="tr"></span>
+  </div>
+  <div class="scroll" id="main"></div>
+</div>
+</div>
+
+<div class="mo" id="mo" hidden onclick="moClick(event)">
+  <div class="mo-box">
+    <div class="mo-hd"><span class="mo-title" id="mo-t"></span><button class="mo-x" onclick="closeMo()">✕</button></div>
+    <div class="mo-body" id="mo-b"></div>
+    <div class="mo-ft" id="mo-f"></div>
+  </div>
+</div>
+
+<div class="mo" id="dlg" hidden style="z-index:3000">
+  <div class="mo-box" style="max-width:430px">
+    <div class="mo-body" id="dlg-msg" style="white-space:pre-line;font-size:14px;line-height:1.55;padding:24px 22px 18px"></div>
+    <div class="mo-ft"><button class="btn btn-ghost" id="dlg-cancel">Cancelar</button><button class="btn btn-pri" id="dlg-ok">Aceptar</button></div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.119.0/dist/umd/supabase.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js"></script>
+<script>
+const S={view:'altas',altas:[],colabs:{},dl:null,user:null};
+const MESES=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+const TITLES={altas:'Altas ARCA',colab:'Colaboradores',contratos:'Contratos',usuarios:'Usuarios'};
+const REQ=['nombre','apellido','cuil','calle','numero','localidad'];
+const LABELS={nombre:'Nombre',apellido:'Apellido',cuil:'CUIL',fechaNac:'Fecha de nacimiento',calle:'Calle',numero:'Número',localidad:'Localidad'};
+const SESSION_KEY='cp_sess_v1';
+
+// Diálogos propios (el visor de claude.ai bloquea confirm/alert del navegador)
+const _dlgQ=[];let _dlgBusy=false;
+function _dlgNext(){if(_dlgBusy||!_dlgQ.length)return;_dlgBusy=true;const {msg,ok,danger,cancel,res}=_dlgQ.shift();
+  const d=document.getElementById('dlg'),okb=document.getElementById('dlg-ok'),cb=document.getElementById('dlg-cancel');
+  document.getElementById('dlg-msg').textContent=msg;okb.textContent=ok;okb.className='btn '+(danger?'btn-danger':'btn-pri');cb.hidden=!cancel;d.hidden=false;
+  const done=v=>{d.hidden=true;okb.onclick=cb.onclick=d.onclick=null;document.removeEventListener('keydown',kd);_dlgBusy=false;res(v);setTimeout(_dlgNext,0);};
+  const kd=e=>{if(e.key==='Escape')done(false);if(e.key==='Enter'){e.preventDefault();done(true);}};
+  okb.onclick=()=>done(true);cb.onclick=()=>done(false);d.onclick=e=>{if(e.target===d&&cancel)done(false);};document.addEventListener('keydown',kd);setTimeout(()=>okb.focus(),30);}
+function uiConfirm(msg,ok='Aceptar',danger=false){return new Promise(res=>{_dlgQ.push({msg,ok,danger,cancel:true,res});_dlgNext();});}
+function uiAlert(msg){return new Promise(res=>{_dlgQ.push({msg:String(msg),ok:'Entendido',danger:false,cancel:false,res});_dlgNext();});}
+window.alert=m=>{uiAlert(m);};
+
+// ===================== CONFIGURACIÓN =====================
+const SUPABASE_URL='https://fptobrnxtyzerzrrghtz.supabase.co';
+const SUPABASE_ANON_KEY='sb_publishable_9luLWl-jkJFDo7KoHWaQiQ_efvQTrlK';
+// =========================================================
+
+const SB_OK=!!(window.supabase&&SUPABASE_ANON_KEY&&!/^PEGAR/.test(SUPABASE_ANON_KEY));
+const sb=SB_OK?window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY,{auth:{persistSession:true,autoRefreshToken:true,storageKey:'contratos-ptatanka-auth'}}):null;
+const COLMAP={cuil:'cuil',apellido:'apellido',nombre:'nombre',fechaNac:'fecha_nac',calle:'calle',numero:'numero',localidad:'localidad',obraSocial:'obra_social',modalidad:'modalidad',categoria:'categoria',puesto:'puesto',altaIni:'alta_ini',altaFin:'alta_fin'};
+function toRow(d){const r={};for(const[k,c]of Object.entries(COLMAP)){r[c]=(d[k]===undefined||d[k]==='')?null:String(d[k]);}r.updated_at=new Date().toISOString();return r;}
+function fromRow(r){const d={};for(const[k,c]of Object.entries(COLMAP))d[k]=r[c]??'';d.updatedAt=r.updated_at;return d;}
+function errMsg(e){const m=(e&&(e.message||e.error_description))||String(e);if(/Failed to fetch|NetworkError|Load failed/i.test(m))return 'No hay conexión con la base de datos. Revisá internet e intentá de nuevo.';return m;}
+
+async function loadColabs(){
+  if(!sb)return;
+  const {data,error}=await sb.from('contratos_colabs').select('*');
+  if(error){console.error(error);setDb(false,'Error de base: '+errMsg(error));return;}
+  S.colabs={};(data||[]).forEach(r=>{S.colabs[nc(r.cuil)]=fromRow(r);});setDb(true);
+}
+function setDb(ok,txt){const dot=document.getElementById('dd'),t=document.getElementById('ds');if(!dot)return;dot.classList.toggle('ok',!!ok);t.textContent=txt||(ok?'Base de datos conectada':'Sin conexión');}
+
+document.getElementById('li-pwd').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
+document.getElementById('li-user').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('li-pwd').focus();});
+
+async function perfilDe(email){
+  const {data,error}=await sb.from('contratos_usuarios').select('email,is_admin').eq('email',email.toLowerCase()).maybeSingle();
+  if(error)throw error;return data;
+}
+
+async function doLogin(){
+  const email=document.getElementById('li-user').value.trim().toLowerCase();
+  const pwd=document.getElementById('li-pwd').value;
+  const btn=document.getElementById('li-btn'),errEl=document.getElementById('li-err');
+  errEl.textContent='';
+  if(!sb){document.getElementById('li-noconn').style.display='';return;}
+  if(!email||!pwd){errEl.textContent='Completá email y contraseña.';return;}
+  btn.disabled=true;btn.textContent='Verificando…';
+  try{
+    const {error}=await sb.auth.signInWithPassword({email,password:pwd});
+    if(error){errEl.textContent=/invalid/i.test(error.message)?'Email o contraseña incorrectos.':(/confirm/i.test(error.message)?'Tenés que confirmar tu email (revisá tu correo).':errMsg(error));return;}
+    const p=await perfilDe(email);
+    if(!p){await sb.auth.signOut();errEl.textContent='Tu usuario no está habilitado para esta app. Pedile acceso al administrador.';return;}
+    S.user={username:email,isAdmin:!!p.is_admin};
+    await showApp();
+  }catch(e){console.error(e);errEl.textContent=errMsg(e);}
+  finally{btn.disabled=false;btn.textContent='Ingresar';}
+}
+
+async function logout(){if(!await uiConfirm('¿Cerrar sesión?','Cerrar sesión'))return;try{await sb.auth.signOut();}catch(e){}S.user=null;S.colabs={};document.getElementById('app').style.display='none';document.getElementById('login-screen').style.display='flex';document.getElementById('li-pwd').value='';document.getElementById('li-err').textContent='';}
+
+async function showApp(){
+  document.getElementById('login-screen').style.display='none';
+  document.getElementById('app').style.display='flex';
+  const u=S.user.username;
+  document.getElementById('ua').textContent=u.slice(0,2).toUpperCase();
+  document.getElementById('un').textContent=u;
+  document.getElementById('ur').textContent=S.user.isAdmin?'Administrador':'Usuario';
+  document.getElementById('nav-usuarios').hidden=false;
+  setDb(false,'Conectando…');
+  await loadColabs();
+  render();
+}
+
+(async()=>{
+  if(!sb){document.getElementById('li-noconn').style.display='';return;}
+  try{
+    const {data}=await sb.auth.getSession();
+    const email=data?.session?.user?.email;
+    if(email){const p=await perfilDe(email);if(p){S.user={username:email.toLowerCase(),isAdmin:!!p.is_admin};await showApp();return;}await sb.auth.signOut();}
+  }catch(e){console.error(e);}
+})();
+
+function rerenderCurrent(){/* sin tiempo real: se recarga al cambiar de vista */
+if(S.view==='colab')renderColab();if(S.view==='altas'&&S.altas.length)renderAltasTable();if(S.view==='contratos')renderContratos();if(S.view==='usuarios')renderUsuarios();}
+function go(v){if(sb&&S.user&&S.view!==v&&(v==='colab'||v==='contratos'))loadColabs().then(()=>{if(S.view===v)render();});S.view=v;document.querySelectorAll('.nav-btn').forEach(b=>b.classList.toggle('on',b.dataset.v===v));document.getElementById('tt').textContent=TITLES[v];render();if(window.innerWidth<=680)document.getElementById('sb').classList.remove('open');}
+function toggleSb(){document.getElementById('sb').classList.toggle('open');}
+function render(){if(S.view==='altas')S.altas.length?renderAltasTable():renderAltasEmpty();if(S.view==='colab')renderColab();if(S.view==='contratos')renderContratos();if(S.view==='usuarios')renderUsuarios();}
+
+function renderAltasEmpty(){
+  document.getElementById('tr').textContent='';document.getElementById('nb-altas').hidden=true;
+  set(`<div style="max-width:580px"><div class="sec-hd"><div><div class="sec-title">Importar Altas de ARCA</div><div class="sec-sub">Subí las constancias de alta (PDF) de Simplificación Registral para empezar</div></div></div><div class="card" style="padding:20px"><div class="drop" id="dz" onclick="document.getElementById('fi').click()"><span class="drop-icon">📄</span><div class="drop-title">Arrastrá los archivos o hacé clic aquí</div><div class="drop-sub">Constancias <em>.pdf</em> de ARCA — podés subir varias juntas<br>(también acepta <em>.xlsx</em>)</div><div style="margin-top:18px"><span class="btn btn-pri" style="pointer-events:none">Seleccionar archivos</span></div></div><input type="file" id="fi" accept=".pdf,.xlsx,.xls" multiple hidden onchange="onFile(event)"></div></div>`);
+  const dz=document.getElementById('dz');
+  dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('over');});
+  dz.addEventListener('dragleave',()=>dz.classList.remove('over'));
+  dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('over');if(e.dataTransfer.files.length)doFiles(e.dataTransfer.files);});
+}
+
+function renderAltasTable(){
+  const total=S.altas.length;const inc=S.altas.filter(a=>!isComplete(a.cuil));const completos=total-inc.length;
+  const nb=document.getElementById('nb-altas');if(inc.length){nb.textContent=inc.length;nb.hidden=false;}else nb.hidden=true;
+  const nbC=document.getElementById('nb-contratos');if(!inc.length&&total){nbC.textContent=total;nbC.hidden=false;}else nbC.hidden=true;
+  document.getElementById('tr').textContent=total+' altas';
+  const rows=S.altas.map((a,i)=>{const ok=isComplete(a.cuil);const miss=missingOf(a.cuil);return`<tr><td class="mono">${fCuil(a.cuil)}</td><td><strong>${esc(a.apellido)}</strong>${a.nombre?', '+esc(a.nombre):''}</td><td>${a.iniStr||'—'}</td><td>${a.finStr||'—'}</td><td>${ok?'<span class="badge badge-ok">✓ Completo</span>':`<span class="badge badge-wn">⚠ ${miss.length} campo${miss.length>1?'s':''}</span>`}</td><td><div style="display:flex;gap:6px;justify-content:flex-end">${ok?`<button class="btn btn-ghost btn-sm" onclick="editColab('${nc(a.cuil)}')">Editar</button>`:`<button class="btn btn-acc btn-sm" onclick="moMissing(${i})">Completar</button>`}<button class="btn btn-ghost btn-sm" style="color:var(--er)" title="Quitar esta alta de la lista" onclick="delAlta(${i})">✕</button></div></td></tr>`;}).join('');
+  set(`<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px"><div><div class="sec-title">${total} alta${total!==1?'s':''} importada${total!==1?'s':''}</div><div class="sec-sub">${completos} completas · ${inc.length} con datos faltantes</div><div class="prog" style="width:220px"><div class="prog-fill" style="width:${Math.round(completos/total*100)}%"></div></div></div><div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><button class="btn btn-ghost btn-sm" onclick="clearAltas()">✕ Limpiar</button><label class="btn btn-ghost btn-sm" style="cursor:pointer">＋ Agregar altas<input type="file" accept=".pdf,.xlsx,.xls" multiple hidden onchange="onFile(event)"></label><button class="btn btn-pri" onclick="go('contratos')" ${inc.length?'disabled':''}>📄 Generar contratos</button></div></div>${inc.length?`<div class="alert alert-wn">⚠️ <span>Faltan datos en <strong>${inc.length}</strong> colaborador${inc.length>1?'es':''}. Hacé clic en <strong>Completar</strong> para cargarlos.</span></div>`:`<div class="alert alert-ok">✅ <span>Todos los datos completos. ¡Listo para generar los contratos!</span></div>`}<div class="card"><div class="tw"><table><thead><tr><th>CUIL</th><th>Colaborador</th><th>Inicio</th><th>Fin</th><th>Estado</th><th></th></tr></thead><tbody>${rows}</tbody></table></div></div>`);
+}
+
+function renderColab(){
+  document.getElementById('tr').textContent='';
+  const list=Object.values(S.colabs).sort((a,b)=>(a.apellido||'').localeCompare(b.apellido||''));
+  if(!list.length){set(`<div class="sec-hd"><div><div class="sec-title">Colaboradores</div><div class="sec-sub">Base de datos de datos personales</div></div><button class="btn btn-pri btn-sm" onclick="moColab(null)">+ Agregar</button></div><div class="card"><div class="empty"><span class="empty-icon">👥</span><div class="empty-title">Sin colaboradores registrados</div><div style="font-size:13px;color:var(--t3)">Los datos se guardan al completar altas de ARCA o agregándolos manualmente.</div></div></div>`);return;}
+  const rows=list.map(c=>`<tr><td><strong>${esc(c.apellido||'')}</strong>, ${esc(c.nombre||'')}${c.puesto?`<div style="font-size:11.5px;color:var(--t3);margin-top:2px">${esc(c.puesto.replace(/^\d+\s*-\s*/,''))}</div>`:''}</td><td class="mono">${fCuil(c.cuil)}</td><td style="color:var(--t2);white-space:nowrap">${c.altaIni?esc(c.altaIni)+' → '+esc(c.altaFin||'…'):'—'}</td><td style="color:var(--t2)">${esc(c.fechaNac||'—')}</td><td style="color:var(--t2)">${esc([c.calle,c.numero,c.localidad].filter(Boolean).join(', ')||'—')}</td><td><div style="display:flex;gap:6px"><button class="btn btn-ghost btn-sm" onclick="editColab('${nc(c.cuil)}')">Editar</button><button class="btn btn-ghost btn-sm" style="color:var(--er)" onclick="delColab('${nc(c.cuil)}')">Eliminar</button></div></td></tr>`).join('');
+  set(`<div class="sec-hd"><div><div class="sec-title">Colaboradores</div><div class="sec-sub">${list.length} registrado${list.length!==1?'s':''}</div></div><button class="btn btn-pri btn-sm" onclick="moColab(null)">+ Agregar</button></div><div class="card"><div class="tw"><table><thead><tr><th>Apellido y nombre</th><th>CUIL</th><th>Última alta</th><th>F. nacimiento</th><th>Domicilio</th><th></th></tr></thead><tbody>${rows}</tbody></table></div></div>`);
+}
+
+function renderContratos(){
+  document.getElementById('tr').textContent='';
+  if(!S.altas.length){set(`<div class="sec-hd"><div class="sec-title">Contratos</div></div><div class="card"><div class="empty"><span class="empty-icon">📄</span><div class="empty-title">Primero importá las altas de ARCA</div><div style="margin-top:16px"><button class="btn btn-pri" onclick="go('altas')">⬆️ Ir a Altas</button></div></div></div>`);return;}
+  const inc=S.altas.filter(a=>!isComplete(a.cuil));
+  if(inc.length){set(`<div class="alert alert-wn">⚠️ <span>Faltan datos en <strong>${inc.length}</strong> colaborador${inc.length>1?'es':''}. <a href="#" onclick="go('altas');return false">Completalos</a> antes de generar.</span></div><div class="card"><div class="empty"><span class="empty-icon">⚠️</span><div class="empty-title">Datos incompletos</div><div style="margin-top:16px"><button class="btn btn-acc" onclick="go('altas')">Completar datos</button></div></div></div>`);return;}
+  const rows=S.altas.map((a,i)=>{const c=S.colabs[nc(a.cuil)]||{};return`<tr><td style="color:var(--t3);font-size:11px;width:32px">${i+1}</td><td><strong>${esc(c.apellido||'')} ${esc(c.nombre||'')}</strong></td><td class="mono">${fCuil(a.cuil)}</td><td style="color:var(--t2)">${a.iniStr||'—'} → ${a.finStr||'—'}</td><td style="color:var(--t2);font-size:12px">${esc([c.calle,c.numero,c.localidad].filter(Boolean).join(', '))}</td><td><button class="btn btn-ghost btn-sm" onclick="genOne(${i})">↓ PDF</button></td></tr>`;}).join('');
+  set(`<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px"><div><div class="sec-title">Contratos listos — ${S.altas.length}</div><div class="sec-sub">Contrato de Trabajo Eventual · Ptatanka SRL</div></div><button class="btn btn-acc btn-lg" onclick="genAll()">📥 Sábana completa (PDF)</button></div><div class="card"><div class="tw"><table><thead><tr><th>#</th><th>Colaborador</th><th>CUIL</th><th>Período</th><th>Domicilio</th><th></th></tr></thead><tbody>${rows}</tbody></table></div></div>`);
+}
+
+let _usuarios={};
+async function renderUsuarios(){
+  document.getElementById('tr').textContent='';
+  const yo=S.user.username;
+  let list=[];
+  try{const {data,error}=await sb.from('contratos_usuarios').select('*').order('email');if(error)throw error;list=data||[];}catch(e){uiAlert('No se pudo cargar la lista de usuarios: '+errMsg(e));}
+  _usuarios={};list.forEach(u=>_usuarios[u.email]=u);
+  const rows=list.map(u=>`<tr><td><strong>${esc(u.email)}</strong></td><td>${u.is_admin?'<span class="badge badge-info">Administrador</span>':'<span class="badge" style="background:var(--sur2);color:var(--t2);border:1px solid var(--bd)">Usuario</span>'}</td><td style="color:var(--t3);font-size:12px">${u.created_at?String(u.created_at).slice(0,10):'—'}</td><td><div style="display:flex;gap:6px;justify-content:flex-end">${u.email===yo?`<button class="btn btn-ghost btn-sm" onclick="moCambiarPwd()">Cambiar mi contraseña</button>`:(S.user.isAdmin?`<button class="btn btn-ghost btn-sm" style="color:var(--er)" onclick="delUsuario('${esc(u.email)}')">Quitar acceso</button>`:'')}</div></td></tr>`).join('');
+  set(`<div class="sec-hd"><div><div class="sec-title">Usuarios del sistema</div><div class="sec-sub">${S.user.isAdmin?'Solo las personas de esta lista pueden entrar a la app':'Personas con acceso a la app'}</div></div>${S.user.isAdmin?'<button class="btn btn-pri btn-sm" onclick="moNuevoUsuario()">+ Nuevo usuario</button>':''}</div><div class="card"><div class="tw"><table><thead><tr><th>Email</th><th>Rol</th><th>Alta</th><th></th></tr></thead><tbody>${rows||'<tr><td colspan="4" style="text-align:center;color:var(--t3);padding:24px">Sin usuarios</td></tr>'}</tbody></table></div></div>${S.user.isAdmin?`<div class="alert alert-wn" style="margin-top:14px">🔑 <span>¿Alguien se olvidó la contraseña? Reseteala en Supabase → <strong>Authentication → Users</strong> (los tres puntitos del usuario → <em>Send password recovery</em>).</span></div>`:''}`);
+}
+
+function moNuevoUsuario(){
+  document.getElementById('mo-t').textContent='Nuevo usuario';
+  document.getElementById('mo-b').innerHTML=`<div style="display:flex;flex-direction:column;gap:13px"><div class="fg"><label class="flabel">Email *</label><input class="finput" type="email" id="nu-user" placeholder="nombre@gmail.com" autocapitalize="none" spellcheck="false"></div><div class="fg"><label class="flabel">Contraseña *</label><input class="finput" type="password" id="nu-pwd" placeholder="mínimo 6 caracteres" autocomplete="new-password"></div><div class="fg"><label class="flabel">Repetir contraseña *</label><input class="finput" type="password" id="nu-pwd2" placeholder="igual que arriba" autocomplete="new-password"></div><label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px"><input type="checkbox" id="nu-admin"> Otorgar permisos de <strong>Administrador</strong></label><div style="font-size:12px;color:var(--t3);line-height:1.5">Si el email ya tiene cuenta en el sistema de mantenimiento, entra con <strong>esa misma contraseña</strong> (la que pongas acá se ignora).</div></div>`;
+  document.getElementById('mo-f').innerHTML=`<button class="btn btn-ghost" onclick="closeMo()">Cancelar</button><button class="btn btn-pri" id="nu-btn" onclick="saveNuevoUsuario()">Crear usuario</button>`;
+  document.getElementById('mo').hidden=false;setTimeout(()=>document.getElementById('nu-user')?.focus(),50);
+}
+async function saveNuevoUsuario(){
+  const email=(v('nu-user')||'').toLowerCase();
+  const pwd=document.getElementById('nu-pwd')?.value||'';const pwd2=document.getElementById('nu-pwd2')?.value||'';
+  const isAdmin=document.getElementById('nu-admin')?.checked||false;
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){alert('Ingresá un email válido.');return;}
+  if(pwd.length<6){alert('La contraseña debe tener al menos 6 caracteres.');return;}
+  if(pwd!==pwd2){alert('Las contraseñas no coinciden.');return;}
+  if(_usuarios[email]){alert('Ese email ya tiene acceso.');return;}
+  const btn=document.getElementById('nu-btn');btn.disabled=true;btn.textContent='Creando…';
+  try{
+    // Crea la cuenta de login con un cliente aparte para no cerrar tu sesión
+    const tmp=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY,{auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false,storageKey:'contratos-tmp-signup'}});
+    let aviso='';
+    const {data,error}=await tmp.auth.signUp({email,password:pwd});
+    if(error){
+      if(/already|registered|exists/i.test(error.message))aviso='Ese email ya tenía cuenta: entra con su contraseña de siempre.';
+      else if(/signups? not allowed|disabled/i.test(error.message))aviso='Los registros están desactivados en Supabase: creá la cuenta en Authentication → Users → Add user (con este mismo email). El acceso ya quedó habilitado.';
+      else throw error;
+    }else if(data&&!data.session){
+      aviso=(data.user&&data.user.identities&&data.user.identities.length===0)?'Ese email ya tenía cuenta: entra con su contraseña de siempre.':'Le llegó un mail a '+email+' para confirmar la cuenta. Después de confirmarlo ya puede entrar.';
+    }
+    const {error:e2}=await sb.from('contratos_usuarios').insert({email,is_admin:isAdmin});
+    if(e2)throw e2;
+    closeMo();await renderUsuarios();
+    uiAlert('✅ Usuario '+email+' habilitado.'+(aviso?'\n\n'+aviso:'\n\nYa puede entrar con la contraseña que le pusiste.'));
+  }catch(e){alert('No se pudo crear el usuario: '+errMsg(e));}
+  finally{if(btn){btn.disabled=false;btn.textContent='Crear usuario';}}
+}
+function moCambiarPwd(){
+  document.getElementById('mo-t').textContent='Cambiar mi contraseña';
+  document.getElementById('mo-b').innerHTML=`<div style="display:flex;flex-direction:column;gap:13px"><div class="fg"><label class="flabel">Nueva contraseña *</label><input class="finput" type="password" id="cp-pwd" placeholder="mínimo 6 caracteres" autocomplete="new-password"></div><div class="fg"><label class="flabel">Repetir nueva contraseña *</label><input class="finput" type="password" id="cp-pwd2" placeholder="igual que arriba" autocomplete="new-password"></div><div style="font-size:12px;color:var(--t3)">Si usás el mismo email en el sistema de mantenimiento, la contraseña cambia también ahí.</div></div>`;
+  document.getElementById('mo-f').innerHTML=`<button class="btn btn-ghost" onclick="closeMo()">Cancelar</button><button class="btn btn-pri" onclick="saveCambiarPwd()">Guardar</button>`;
+  document.getElementById('mo').hidden=false;setTimeout(()=>document.getElementById('cp-pwd')?.focus(),50);
+}
+async function saveCambiarPwd(){
+  const pwd=document.getElementById('cp-pwd')?.value||'',pwd2=document.getElementById('cp-pwd2')?.value||'';
+  if(pwd.length<6){alert('La contraseña debe tener al menos 6 caracteres.');return;}
+  if(pwd!==pwd2){alert('Las contraseñas no coinciden.');return;}
+  const {error}=await sb.auth.updateUser({password:pwd});
+  if(error){alert('Error: '+errMsg(error));return;}
+  closeMo();uiAlert('✅ Contraseña actualizada.');
+}
+async function delUsuario(email){
+  if(email===S.user.username){alert('No podés quitarte el acceso a vos mismo.');return;}
+  if(!await uiConfirm('¿Quitarle el acceso a '+email+'?\n\nYa no va a poder entrar a esta app.','Quitar acceso',true))return;
+  const {error}=await sb.from('contratos_usuarios').delete().eq('email',email);
+  if(error){alert('Error: '+errMsg(error));return;}
+  await renderUsuarios();
+}
+
+function moMissing(idx){
+  const a=S.altas[idx];const cuil=nc(a.cuil);const c=S.colabs[cuil]||{};const miss=missingOf(cuil);
+  document.getElementById('mo-t').textContent='Datos faltantes — '+(a.apellido||'')+', '+(a.nombre||'');
+  document.getElementById('mo-b').innerHTML=`<p style="font-size:13px;color:var(--t2);margin-bottom:16px">CUIL <span class="mono">${fCuil(a.cuil)}</span> · Período <strong>${a.iniStr||'?'}</strong> al <strong>${a.finStr||'?'}</strong></p><div style="display:flex;flex-direction:column;gap:13px"><div class="frow"><div class="fg"><label class="flabel">Apellido *</label><input class="finput${miss.includes('apellido')?' err':''}" id="fm-ape" value="${esc(c.apellido||a.apellido||'')}" placeholder="González"></div><div class="fg"><label class="flabel">Nombre *</label><input class="finput${miss.includes('nombre')?' err':''}" id="fm-nom" value="${esc(c.nombre||a.nombre||'')}" placeholder="Carlos"></div></div><div class="frow"><div class="fg"><label class="flabel">Fecha de nacimiento</label><input class="finput" type="date" id="fm-nac" value="${toISO(c.fechaNac||'')}"></div></div><div class="subsec"><div class="subsec-label">Domicilio</div><div class="frow" style="margin-bottom:10px"><div class="fg lg"><label class="flabel">Calle *</label><input class="finput${miss.includes('calle')?' err':''}" id="fm-cal" value="${esc(c.calle||'')}" placeholder="San Martín"></div><div class="fg sm"><label class="flabel">Número *</label><input class="finput${miss.includes('numero')?' err':''}" id="fm-num" value="${esc(c.numero||'')}" placeholder="435"></div></div><div class="fg"><label class="flabel">Localidad *</label><input class="finput${miss.includes('localidad')?' err':''}" id="fm-loc" value="${esc(c.localidad||'Villa Carlos Paz')}" placeholder="Villa Carlos Paz"></div></div></div>`;
+  document.getElementById('mo-f').innerHTML=`<button class="btn btn-ghost" onclick="closeMo()">Cancelar</button><button class="btn btn-pri" onclick="saveMissing('${cuil}','${idx}')">💾 Guardar datos</button>`;
+  document.getElementById('mo').hidden=false;
+}
+async function saveMissing(cuil,idx){
+  const data={cuil,apellido:v('fm-ape'),nombre:v('fm-nom'),fechaNac:v('fm-nac'),calle:v('fm-cal'),numero:v('fm-num'),localidad:v('fm-loc')};
+  const miss=REQ.filter(f=>!data[f]);if(miss.length){alert('Completá: '+miss.map(f=>LABELS[f]).join(', '));return;}
+  await saveColab(cuil,data);closeMo();renderAltasTable();
+}
+
+function moColab(cuil){
+  const c=cuil?(S.colabs[cuil]||{cuil}):{};const isNew=!cuil;
+  document.getElementById('mo-t').textContent=isNew?'Nuevo colaborador':'Editar — '+(c.apellido||'')+', '+(c.nombre||'');
+  document.getElementById('mo-b').innerHTML=`<div style="display:flex;flex-direction:column;gap:13px"><div class="frow"><div class="fg"><label class="flabel">Apellido *</label><input class="finput" id="me-ape" value="${esc(c.apellido||'')}" placeholder="González"></div><div class="fg"><label class="flabel">Nombre *</label><input class="finput" id="me-nom" value="${esc(c.nombre||'')}" placeholder="Carlos"></div></div><div class="frow"><div class="fg"><label class="flabel">CUIL *</label><input class="finput mono" id="me-cuil" value="${fCuil(c.cuil||'')}" placeholder="20-12345678-9"></div><div class="fg"><label class="flabel">Fecha de nacimiento</label><input class="finput" type="date" id="me-nac" value="${toISO(c.fechaNac||'')}"></div></div><div class="subsec"><div class="subsec-label">Domicilio</div><div class="frow" style="margin-bottom:10px"><div class="fg lg"><label class="flabel">Calle *</label><input class="finput" id="me-cal" value="${esc(c.calle||'')}" placeholder="San Martín"></div><div class="fg sm"><label class="flabel">Número *</label><input class="finput" id="me-num" value="${esc(c.numero||'')}" placeholder="435"></div></div><div class="fg"><label class="flabel">Localidad *</label><input class="finput" id="me-loc" value="${esc(c.localidad||'Villa Carlos Paz')}" placeholder="Villa Carlos Paz"></div></div>${arcaInfo(c)}</div>`;
+  document.getElementById('mo-f').innerHTML=`<button class="btn btn-ghost" onclick="closeMo()">Cancelar</button><button class="btn btn-pri" onclick="saveColabMo('${cuil||''}')">💾 Guardar</button>`;
+  document.getElementById('mo').hidden=false;
+}
+function editColab(cuil){moColab(cuil);}
+function arcaInfo(c){const it=[['Última alta',c.altaIni?c.altaIni+' → '+(c.altaFin||'…'):''],['Modalidad',c.modalidad],['Categoría',c.categoria],['Puesto',c.puesto],['Obra social',c.obraSocial]].filter(x=>x[1]);
+  if(!it.length)return '';return `<div class="subsec"><div class="subsec-label">Datos de ARCA</div><div style="display:grid;grid-template-columns:auto 1fr;gap:5px 12px;font-size:12.5px">${it.map(([k,v])=>`<span style="color:var(--t3)">${k}</span><span>${esc(v)}</span>`).join('')}</div></div>`;}
+async function saveColabMo(oldCuil){
+  const cuil=nc(v('me-cuil'));if(cuil.length<10){alert('CUIL inválido');return;}
+  const data={cuil,apellido:v('me-ape'),nombre:v('me-nom'),fechaNac:v('me-nac'),calle:v('me-cal'),numero:v('me-num'),localidad:v('me-loc')};
+  const miss=REQ.filter(f=>!data[f]);if(miss.length){alert('Completá: '+miss.map(f=>LABELS[f]).join(', '));return;}
+  if(oldCuil&&nc(oldCuil)!==cuil){const prev=S.colabs[nc(oldCuil)]||{};await deleteColab(nc(oldCuil));await saveColab(cuil,{...prev,...data});}
+  else await saveColab(cuil,data);closeMo();renderColab();
+}
+async function delColab(cuil){
+  const c=S.colabs[cuil];if(!await uiConfirm('¿Eliminar a '+(c?.apellido||'')+', '+(c?.nombre||'')+' de la lista de colaboradores?\n\nSe borran todos sus datos guardados.','Eliminar',true))return;
+  await deleteColab(cuil);renderColab();
+}
+
+async function saveColab(cuil,data){const d={...(S.colabs[cuil]||{}),...data,cuil,updatedAt:new Date().toISOString()};S.colabs[cuil]=d;if(!sb)return;const {error}=await sb.from('contratos_colabs').upsert(toRow(d),{onConflict:'cuil'});if(error){console.error(error);alert('No se pudo guardar a '+(d.apellido||cuil)+': '+errMsg(error));}}
+async function deleteColab(cuil){if(sb){const {error}=await sb.from('contratos_colabs').delete().eq('cuil',cuil);if(error){alert('No se pudo eliminar: '+errMsg(error));return;}}delete S.colabs[cuil];}
+
+function onFile(e){const fs=e.target.files;if(fs&&fs.length)doFiles(Array.from(fs));e.target.value='';}
+async function doFile(file){return doFiles([file]);}
+async function doFiles(files){
+  files=Array.from(files);const nuevas=[];const errores=[];const avisos=[];
+  for(const f of files){
+    const name=f.name||'archivo';
+    try{
+      if(/\.pdf$/i.test(name)||f.type==='application/pdf'){const arr=await parsePDF(f);nuevas.push(...arr);if(arr.otras)avisos.push(name+': se ignoraron '+arr.otras+' página'+(arr.otras>1?'s':'')+' que no son de alta (bajas u otros).');}
+      else if(/\.xlsx?$/i.test(name)){const arr=await parseExcel(f);if(!arr.length)errores.push(name+': no se encontraron altas');else nuevas.push(...arr);}
+      else errores.push(name+': formato no soportado (usá PDF o Excel)');
+    }catch(e){errores.push(name+': '+e.message);}
+  }
+  let agregadas=0,repetidas=0,colabNuevos=0;
+  for(const a of nuevas){
+    if(nc(a.cuil).length>=11&&!S.colabs[nc(a.cuil)])colabNuevos++;
+    await upsertColabFromAlta(a);
+    const k=nc(a.cuil)+'|'+a.iniStr;if(S.altas.some(x=>nc(x.cuil)+'|'+x.iniStr===k)){repetidas++;continue;}S.altas.push(a);agregadas++;
+  }
+  if(S.altas.length){go('altas');renderAltasTable();}
+  const msg=[];
+  if(colabNuevos)msg.push('👥 '+colabNuevos+' colaborador'+(colabNuevos>1?'es nuevos agregados':' nuevo agregado')+' a la lista de Colaboradores.');
+  if(repetidas)msg.push(repetidas+' alta'+(repetidas>1?'s ya estaban cargadas':' ya estaba cargada')+' y no se duplicó.');
+  if(avisos.length)msg.push(avisos.join('\n'));
+  if(errores.length)msg.push('No se pudieron leer:\n• '+errores.join('\n• '));
+  if(msg.length)alert((agregadas?agregadas+' alta'+(agregadas>1?'s agregadas':' agregada')+'.\n\n':'')+msg.join('\n\n'));
+}
+
+async function upsertColabFromAlta(a){
+  const cuil=nc(a.cuil);if(cuil.length<11)return;
+  const d={...(S.colabs[cuil]||{}),cuil};
+  const fill=(k,val)=>{if(val&&!String(d[k]||'').trim())d[k]=val;};
+  fill('apellido',a.apellido);fill('nombre',a.nombre);
+  const prevIni=parseXDate(d.altaIni||'');
+  const esMasNueva=!prevIni||(a.iniD&&a.iniD>=prevIni);
+  if(esMasNueva){['obraSocial','modalidad','categoria','puesto'].forEach(k=>{if(a[k])d[k]=a[k];});if(a.iniStr){d.altaIni=a.iniStr;d.altaFin=a.finStr||'';}}
+  else ['obraSocial','modalidad','categoria','puesto'].forEach(k=>fill(k,a[k]));
+  await saveColab(cuil,d);
+}
+
+async function parsePDF(file){
+  const lib=window.pdfjsLib;if(!lib)throw new Error('no se pudo cargar el lector de PDF, recargá la página');
+  try{lib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';}catch(e){}
+  const data=new Uint8Array(await file.arrayBuffer());
+  const pdf=await lib.getDocument({data}).promise;
+  const out=[],vistos=new Set();let otras=0;
+  for(let p=1;p<=pdf.numPages;p++){
+    const tc=await (await pdf.getPage(p)).getTextContent();
+    const r=altaFromText(tc.items.map(i=>i.str).join(' ').replace(/\s+/g,' '));
+    if(!r)continue;
+    if(r.noAlta){otras++;continue;}
+    const k=r.cuil+'|'+r.iniStr;if(vistos.has(k))continue;vistos.add(k);out.push(r);
+  }
+  if(!out.length)throw new Error(otras?'no tiene constancias de alta (solo bajas u otros trámites)':'no parece una constancia de ARCA (no encontré el CUIL)');
+  out.otras=otras;return out;
+}
+function splitNombre(full){
+  const PART=/^(DE|DEL|LA|LAS|LOS|SAN|SANTA|DA|DI|VON|VAN|MC|MAC)$/i;
+  const t=String(full||'').trim().split(/\s+/).filter(Boolean);const g=[];let buf=[];
+  t.forEach(w=>{buf.push(w);if(!PART.test(w)){g.push(buf.join(' '));buf=[];}});if(buf.length)g.push(buf.join(' '));
+  const nAp=g.length>=4?2:1;return{apellido:g.slice(0,nAp).join(' '),nombre:g.slice(nAp).join(' ')};
+}
+function altaFromText(txt){
+  const g=re=>{const m=txt.match(re);return m?m[1].trim():'';};
+  const cuil=nc(g(/CUIL:\s*(\d{2}-?\d{8}-?\d)/i));
+  if(cuil.length<11)return null;
+  const tipo=g(/CONSTANCIA DEL TRABAJADOR\s*(\w+)/i);
+  if(tipo&&!/^alta$/i.test(tipo))return{noAlta:true};
+  const nombreCompleto=g(/Apellido y nombre:\s*(.+?)\s*CUIL:/i);
+  const iniRaw=g(/Fecha\s*Inicio:\s*(\d{1,2}\/\d{1,2}\/\d{4})/i);
+  const finRaw=g(/Fecha\s*Cese:\s*(\d{1,2}\/\d{1,2}\/\d{4})/i);
+  const {apellido,nombre}=splitNombre(nombreCompleto);
+  const iniD=parseXDate(iniRaw);const finD=parseXDate(finRaw);
+  const obraSocial=g(/Obra Social:\s*(.+?)\s*Modalidad de contrato:/i),modalidad=g(/Modalidad de contrato:\s*(.+?)\s*Situaci/i),categoria=g(/Categor[ií]a:\s*(.+?)\s*Puesto:/i),puesto=g(/Puesto:\s*(.+?)\s*Retrib/i);
+  return{cuil,nombreCompleto,apellido,nombre,iniD,finD,iniStr:iniD?fmtDD(iniD):iniRaw,finStr:finD?fmtDD(finD):finRaw,obraSocial,modalidad,categoria,puesto};
+}
+function parseExcel(file){return new Promise((res,rej)=>{const r=new FileReader();r.onload=e=>{try{const wb=XLSX.read(e.target.result,{type:'binary'});const ws=wb.Sheets[wb.SheetNames[0]];const rows=XLSX.utils.sheet_to_json(ws,{header:1,defval:''});if(!rows.length)return rej(new Error('Archivo vacío'));let hi=0;for(let i=0;i<Math.min(8,rows.length);i++){if(rows[i].some(c=>/cuil|cuit/i.test(String(c)))){hi=i;break;}}const hdr=rows[hi].map(h=>String(h).toLowerCase().trim());const ci={cuil:col(hdr,['cuil','cuit','cuil del empleado']),nom:col(hdr,['apellido y nombre','apellido nombre','denominación','denominacion','nombre y apellido','apellido y nombres']),ape:col(hdr,['apellido']),nom2:col(hdr,['nombre']),ini:col(hdr,['fecha de inicio','fecha inicio','inicio','fecha desde','desde','alta','fecha de alta','f. inicio','fecha alta']),fin:col(hdr,['fecha de baja','fecha baja','baja','hasta','fecha hasta','fin','fecha de fin','fecha fin','f. baja'])};const altas=[];for(let i=hi+1;i<rows.length;i++){const row=rows[i];const cuil=nc(String(row[ci.cuil]??''));if(cuil.length<10)continue;let nombreCompleto=ci.nom>=0?String(row[ci.nom]).trim():ci.ape>=0&&ci.nom2>=0?`${row[ci.ape]} ${row[ci.nom2]}`.trim():'';let apellido='',nombre='';if(nombreCompleto.includes(',')){[apellido,nombre]=nombreCompleto.split(',').map(s=>s.trim());}else{const pts=nombreCompleto.split(' ');const mid=Math.ceil(pts.length/2);apellido=pts.slice(0,mid).join(' ');nombre=pts.slice(mid).join(' ');}const iniRaw=ci.ini>=0?row[ci.ini]:'';const finRaw=ci.fin>=0?row[ci.fin]:'';const iniD=parseXDate(iniRaw);const finD=parseXDate(finRaw);altas.push({cuil,nombreCompleto,apellido,nombre,iniD,finD,iniStr:iniD?fmtDD(iniD):String(iniRaw),finStr:finD?fmtDD(finD):String(finRaw)});}res(altas);}catch(err){rej(err);}};r.onerror=rej;r.readAsBinaryString(file);});}
+function col(hdr,names){for(const n of names){const i=hdr.findIndex(h=>h.includes(n));if(i>=0)return i;}return -1;}
+
+async function genOne(idx){const a=S.altas[idx];const c=S.colabs[nc(a.cuil)];const doc=buildPDF([{a,c}]);await dlPDF(doc,'Contrato_'+c.apellido+'_'+c.nombre+'.pdf');}
+async function genAll(){const pairs=S.altas.map(a=>({a,c:S.colabs[nc(a.cuil)]}));const doc=buildPDF(pairs);await dlPDF(doc,'Contratos_Ptatanka_'+new Date().toISOString().slice(0,10)+'.pdf');}
+function buildPDF(pairs){const J=window.jspdf?.jsPDF||window.jsPDF;const doc=new J({unit:'mm',format:'a4'});pairs.forEach(({a,c},i)=>{if(i)doc.addPage();pageContrato(doc,a,c);});return doc;}
+async function dlPDF(doc,name){if(S.dl){try{await S.dl.save({filename:name,data:doc.output('arraybuffer')});return;}catch(e){}}doc.save(name);}
+
+const PT=0.3528;
+function richPara(doc,text,x,y,w,o){
+  const size=o.size||12,lh=o.lh,top=o.top,maxY=o.maxY;
+  const runs=[];String(text).split('**').forEach((s,i)=>{if(s)runs.push({t:s,b:i%2===1});});
+  const words=[];let cur=[];
+  runs.forEach(r=>{r.t.split(/(\s+)/).forEach(p=>{if(!p)return;if(/^\s+$/.test(p)){if(cur.length){words.push(cur);cur=[];}}else cur.push({t:p,b:r.b});});});
+  if(cur.length)words.push(cur);
+  doc.setFontSize(size);
+  const tw=t=>{let s=0;for(const ch of t)s+=doc.getTextWidth(ch);return s;};
+  const fw=f=>{doc.setFont('helvetica',f.b?'bold':'normal');return tw(f.t);};
+  const ww=wd=>wd.reduce((a,f)=>a+fw(f),0);
+  doc.setFont('helvetica','normal');const sp=doc.getTextWidth(' ');
+  const lines=[];let line=[],lw=0;
+  words.forEach(wd=>{const w2=ww(wd);const add=line.length?sp+w2:w2;if(line.length&&lw+add>w){lines.push({words:line});line=[wd];lw=w2;}else{line.push(wd);lw+=add;}});
+  if(line.length)lines.push({words:line,last:true});
+  lines.forEach(ln=>{
+    if(y>maxY){doc.addPage();y=top;}
+    const gaps=ln.words.length-1;
+    const content=ln.words.reduce((a,wd)=>a+ww(wd),0);
+    const gap=(o.justify&&!ln.last&&gaps>0)?(w-content)/gaps:sp;
+    let cx=x;
+    ln.words.forEach(wd=>{wd.forEach(f=>{doc.setFont('helvetica',f.b?'bold':'normal');doc.text(f.t,cx,y);cx+=tw(f.t);});cx+=gap;});
+    y+=lh;
+  });
+  doc.setFont('helvetica','normal');
+  return y;
+}
+
+function pageContrato(doc,alta,c){
+  const L=22,R=188,W=R-L,TOP=20,MAXY=275;
+  const FS=12,LH=FS*1.5*PT,PGAP=FS*2*PT-(LH-FS*PT);
+  const B=s=>'**'+s+'**';
+  const dni=extractDNI(c.cuil||alta.cuil);const dir=[c.calle,c.numero].filter(Boolean).join(' ');const loc=c.localidad||'Villa Carlos Paz';
+  const iniStr=alta.iniD?diasMes(alta.iniD):alta.iniStr;const iniYear=alta.iniD?String(alta.iniD.getFullYear()):'______';
+  const finStr=alta.finD?diasMes(alta.finD):(alta.finStr||'_____ del mes de ______________');const finYear=alta.finD?String(alta.finD.getFullYear()):'______';
+  const hoy=new Date();const firmaStr=hoy.getDate()+' días del mes de '+MESES[hoy.getMonth()]+' del año '+hoy.getFullYear();
+  const nomEmp=((c.apellido||'')+' '+(c.nombre||'')).trim();
+  let y=TOP+2;
+  doc.setTextColor(20,20,20);
+  doc.setFontSize(14);doc.setFont('helvetica','bold');doc.text('CONTRATO DE TRABAJO EVENTUAL',105,y,{align:'center'});y+=5;
+  doc.setLineWidth(0.3);doc.setDrawColor(170,170,170);doc.line(L,y,R,y);y+=10;
+  const opt={size:FS,lh:LH,top:TOP,maxY:MAXY,justify:true};
+  const paras=[
+    'Entre '+B('PTATANKA sociedad de responsabilidad limitada')+', que funciona bajo el nombre de fantasía: '+B('AVENTURA EN ALTURA')+', con domicilio a todos los efectos en calle '+B('Florencio Sánchez s/n (Complejo Aerosilla)')+' de esta ciudad de '+B('Villa Carlos Paz')+' por un lado en adelante denominado '+B('EMPLEADOR')+' y por otro '+B(nomEmp)+', acreditando su identidad con '+B('D.N.I.: '+dni)+', con domicilio a todos los efectos en calle: '+B(dir)+', de '+B(loc)+', en adelante denominada/o '+B('TRABAJADOR EVENTUAL')+', convienen en formular el presente contrato de trabajo, de acuerdo a la ley 24.013, art. 68-74, que modifican los art. 99 y 100 ley 20.744.',
+    B('PRIMERA:')+' el '+B('EMPLEADOR')+', contrata al '+B('TRABAJADOR POR EVENTUAL')+', por el periodo comprendido de tiempo que transcurre desde el día '+B(iniStr+' del año '+iniYear)+', y finalizara con fecha '+B(finStr+' del año '+finYear)+' de pleno derecho, atento la tarea Eventual requerida debido al carácter especial, propia de la actividad comercial, la cual se describe de la siguiente manera. Dando por finalizado, a la expiración del plazo establecido.',
+    B('SEGUNDA:')+' la tarea encomendada por el '+B('empleador')+' al '+B('trabajador/a eventual')+' son las siguientes: tareas de múltiples funciones de acuerdo al requerimiento de la explotación comercial. Principalmente atención al público, promoción e instrucción en las actividades de arquería y tirolesa.',
+    B('TERCERA:')+' remuneración: el/la '+B('trabajador/a eventual')+' percibirá una remuneración mensual en pesos de acuerdo a los días trabajados, de acuerdo a lo estipulado al convenio que rige la actividad: sindicato de espectáculos públicos, y se abonará en forma mensual del 01 al 10 de cada mes, en domicilio laboral.',
+    B('CUARTA:')+' la finalización del contrato estará determinada por la finalización del tiempo transcurrido, de conformidad entre las partes. Salvo que alguna de las partes establezca una rescisión anticipada de acuerdo a la Ley 20.744.',
+    B('QUINTA:')+' las partes en muestra de conformidad firman dos ejemplares del mismo tenor y a un solo efecto, renunciando a toda jurisdicción que no sea la de los Tribunales Ordinarios de la Ciudad de Villa Carlos Paz a los '+B(firmaStr)+'.-'
+  ];
+  paras.forEach((p,i)=>{y=richPara(doc,p,L,y,W,opt);if(i<paras.length-1)y+=PGAP;});
+  // Firmas
+  let sy=y+18;if(sy+16>287){doc.addPage();sy=TOP+30;}
+  doc.setDrawColor(120);doc.setLineWidth(0.3);doc.setFontSize(10);doc.setTextColor(20,20,20);
+  const lx=L+36,rL=R-72,rx=(rL+R)/2;
+  doc.line(L,sy,L+72,sy);doc.line(rL,sy,R,sy);
+  doc.setFont('helvetica','bold');doc.text('TRABAJADOR/A EVENTUAL',lx,sy+5,{align:'center'});doc.text('EMPLEADOR',rx,sy+5,{align:'center'});
+  doc.setFont('helvetica','normal');doc.text(nomEmp.toUpperCase(),lx,sy+10,{align:'center'});doc.text('D.N.I.: '+dni,lx,sy+15,{align:'center'});
+  doc.text('PTATANKA SRL',rx,sy+10,{align:'center'});doc.text('Aventura en Altura',rx,sy+15,{align:'center'});
+}
+
+
+function nc(s){return String(s||'').replace(/\D/g,'');}
+function fCuil(s){const c=nc(s);return c.length===11?c.slice(0,2)+'-'+c.slice(2,10)+'-'+c[10]:c;}
+function extractDNI(cuil){const c=nc(cuil);return c.length>=10?c.slice(2,10):c;}
+function isComplete(cuil){return missingOf(cuil).length===0;}
+function missingOf(cuil){const c=S.colabs[nc(cuil)];if(!c)return REQ;return REQ.filter(f=>!c[f]||!String(c[f]).trim());}
+async function delAlta(i){const a=S.altas[i];if(!a)return;const c=S.colabs[nc(a.cuil)]||{};const nom=((c.apellido||a.apellido||'')+', '+(c.nombre||a.nombre||'')).trim();
+  if(!await uiConfirm('¿Quitar el alta de '+nom+' de esta lista?\n\nNo se generará su contrato. Sus datos siguen guardados en Colaboradores (podés borrarlo desde ahí si querés).','Quitar',true))return;
+  S.altas.splice(i,1);if(S.altas.length)renderAltasTable();else{document.getElementById('nb-contratos').hidden=true;renderAltasEmpty();}}
+async function clearAltas(){if(!await uiConfirm('¿Limpiar todas las altas importadas de esta lista?\n\nLos colaboradores siguen guardados.','Limpiar',true))return;S.altas=[];document.getElementById('nb-altas').hidden=true;document.getElementById('nb-contratos').hidden=true;renderAltasEmpty();}
+function parseXDate(val){if(!val&&val!==0)return null;if(typeof val==='number'){try{const d=XLSX.SSF.parse_date_code(val);return new Date(d.y,d.m-1,d.d);}catch(e){}}const s=String(val).trim();const m1=s.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})$/);if(m1)return new Date(+m1[3],+m1[2]-1,+m1[1]);const m2=s.match(/^(\d{4})[\/\-](\d{1,2})[\/\-](\d{1,2})$/);if(m2)return new Date(+m2[1],+m2[2]-1,+m2[3]);return null;}
+function fmtDD(d){return String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0')+'/'+d.getFullYear();}
+function diasMes(d){return d.getDate()+' del mes de '+MESES[d.getMonth()];}
+function toISO(s){if(!s)return '';if(/^\d{4}-\d{2}-\d{2}$/.test(s))return s;const m=s.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})$/);return m?m[3]+'-'+m[2].padStart(2,'0')+'-'+m[1].padStart(2,'0'):'';}
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function v(id){return(document.getElementById(id)?.value||'').trim();}
+function set(html){document.getElementById('main').innerHTML=html;}
+function moClick(e){if(e.target.id==='mo')closeMo();}
+function closeMo(){document.getElementById('mo').hidden=true;}
+</script>
+
+</body></html>
